@@ -32,11 +32,11 @@ const SingleProduct = () => {
     useEffect(() => {
 
         window.scrollTo({
-            bottom: "0",
+            top: "0",
             behavior: "smooth"
         })
 
-    }, [id]);
+    }, [id,name]);
 
 
 
@@ -135,7 +135,7 @@ const SingleProduct = () => {
                             <svg className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <a href="#" className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Projects</a>
+                            <a href="/Shop" className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Products</a>
                         </div>
                     </li>
                     <li aria-current="page">
@@ -152,7 +152,7 @@ const SingleProduct = () => {
             {/* main-single-product */}
             <div className='max-w-screen-xl  mx-auto py-3 px-3 min-h-screen'>
                 <div className='grid grid-cols-1 md:grid-cols-2'>
-                    <div className='w-full md:w-[600px] h-[600px] flex md:space-x-3'>
+                    <div className='w-full md:w-[600px h-full] md:h-[600px] flex md:space-x-3'>
                         <div className='hidden md:block small-imgs mt-2 px-2'>
                             <div className='w-32 mb-2 cursor-pointer h-[8.8rem]'>
                                 <img
@@ -193,11 +193,11 @@ const SingleProduct = () => {
                         </div>
                         <motion.div
                             whileTap={{ scale: 0.9 }}
-                            className='w-full relative bigimage h-[600px]'
+                            className='w-full relative bigimage  h-[450px] md:h-[600px] '
                         >
                             <img
                                 src={product && product.bigImage ? product.bigImage : (product && product.fourthImage ? product.img : "")}
-                                className='w-full h-full object-cover object-center'
+                                className='w-full h-full md:h-full object-cover object-center'
                                 alt=""
                             />
 
@@ -218,14 +218,14 @@ const SingleProduct = () => {
                     </div>
                     <div className='w-full'>
                         <div className=' min-h-screen'>
-                            <p className='text-4xl font-medium mb-2'>{product ? product.productName : ""}</p>
+                            <p className=' text-xl md:text-3xl font-medium mb-2'>{product ? product.productName : ""}</p>
 
                             <div className='w-full '>
-                                <p className='text-lg text-pretty mt-4'>{product ? product.description : ""}</p>
+                                <p className=' text-xm md:text-lg text-pretty mt-2 md:mt-4'>{product ? product.description : ""}</p>
                             </div>
 
                             <div className='prices'>
-                                <p className='text-base font-semibold text-[#E51515]'><span className='text-xl text-gray-900'>Offer Price: </span> <del className='text-gray-500'> {product ? product.mainPrice : ''}</del> {product ? product.discountPrice : ''} <span className='text-xs text-red-300'>{product ? product.percentage : ''}% Off</span> </p>
+                                <p className='text-base font-semibold text-[#E51515]'><span className='text-xl text-gray-900'>Offer Price: </span> Rs  {product ? product.discountPrice : ''} <del className='text-[14px] text-gray-500'> {product ? product.mainPrice : ''}</del> <span className='text-xs text-red-400'>{product ? product.percentage : ''}% Off</span> </p>
                             </div>
                             <div>
                                 {product ? (

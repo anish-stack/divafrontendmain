@@ -58,7 +58,7 @@ const NewArrival = () => {
                                 <div className='product-information text-center'>
                                     <p className='text-xl font-medium mb-2'>{item.productName}</p>
                                     <div className='prices'>
-                                        <p className='text-base font-semibold text-[#E51515]'><del className='text-gray-500'>{item.mainPrice}</del> {item.discountPrice}</p>
+                                        <p className='text-base font-semibold text-[#E51515]'>Rs <del className='text-gray-500'>{item.mainPrice}</del> {item.discountPrice}</p>
                                     </div>
                                 </div>
                                 {/* <h3 className='text-xl font-bold text-red-500'>
